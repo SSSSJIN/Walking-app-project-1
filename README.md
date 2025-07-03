@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+# 산책어플 프로젝트
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# 1. 프로젝트 개요
+- 프로젝트 이름: 산책 경로 공유 어플
+- 프로젝트 설명: 새로운 산책길을 찾거나 나의 산책길을 공유하는 공간입니다.
 
-## Get started
 
-1. Install dependencies
+# 2. 팀원 및 팀 소개
+| 이우주 | 신성진 |
+|:------:|:------:| 
+| [GitHub](https://github.com/) | [GitHub](https://github.com/) | 
 
-   ```bash
-   npm install
-   ```
+<br/>
+<br/>
 
-2. Start the app
+# 3. 주요 기능
 
-   ```bash
-   npx expo start
-   ```
+- **나만의 산책길을 기록**:
+  -남들에게 알리고 싶은 나의 산책길을 기록해 게시판에 공유할 수 있다.
 
-In the output, you'll find options to open the app in a
+- **산책길  공유**:
+  -게시판에서 주변 산책길이나 인기 산책길을 둘러볼 수 있다.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **추천 산책길 안내**:
+  -선택한 산책길에 대한 자세한 경로와 이미지를 확인하고 산책길 안내를 받을 수 있다.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+# 4. 작업 및 역할 분담
 
-When you're ready, run:
+| 이름   | 역할 |
+|--------|------|
+| 이우주 | <br>- 팀 리딩 및 커뮤니케이션<br>- 게시판 개발<br>- gps 및 직접 경로 기록 개발<br> |
+| 신성진 | <br>- 일정 관리 및 서기<br>- 경로 안내 기능 개발<br> |
 
-```bash
-npm run reset-project
-```
+# 5. 기술 스택
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+| 언어        | 아이콘 |
+|-------------|:------:|
+| TypeScript  | <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" height="28"> |
+| JavaScript  | <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="28"> |
 
-## Learn more
+| 프레임워크    | 아이콘 |
+|--------------|:------:|
+| React Native | <img src="https://img.shields.io/badge/react%20native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" height="28"> |
 
-To learn more about developing your project with Expo, look at the following resources:
+| 백엔드         | 아이콘 |
+|----------------|:------:|
+| Node.js        | <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" height="28"> |
+| Oracle Database | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+| API           | 아이콘 |
+|---------------|:------:|
+| Google Map API | <img src="https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white" height="28"> |
 
-## Join the community
+| 협업 도구 | 아이콘 |
+|-----------|:------:|
+| Notion    | <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white" height="28"> |
 
-Join our community of developers creating universal apps.
+<br/>
+<br/>
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# 6. 기능 설명
+1. 메인화면
+   - 게시글들이 보여집니다.
+   - 경로 이미지가 크게보여지고 공유된 경로 이미지가 작게 표시됩니다.
+   - 경로의 거리, 예산 산책 시간이 표시됩니다.
+
+2. 기록
+   - GPS로 직접 산책한 경로를 기록할 수 있습니다.
+   - 지도에서 직접 경로를 그려서 경로를 기록할 수 있습니다.
+
+3. 나의 산책길
+   - 내가 기록한 경로들, 다운받은 경로들을 확인할 수 있습니다.
+   - 경로를 선택해 지도로 확인할수 있습니다.
+   - 공유하고 싶은 경로를 선택해 게시글(제목, 설명, 이미지 추가)을 작성해 올릴 수 있습니다.
+   
+4. 경로 저장하기
+   - 게시글 중 마음에 드는 경로를 다운 받을 수 있습니다.
+   - 게시글에서 경로 안내를 누르면 카카오 도보 지도로 연결되어 안내받을 수 있습니다.
+
+
+개발 기간 25.05 ~ 25.06
+
