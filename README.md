@@ -25,8 +25,7 @@ $ npm start
 
 # 2. Team Members (팀원 및 팀 소개)
 | 이우주 | 신성진 |
-|:------:|:------:|
-| <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="150"> | <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="150"> | 
+|:------:|:------:| 
 | PL | FE |
 | [GitHub](https://github.com/) | [GitHub](https://github.com/) | 
 
@@ -55,8 +54,8 @@ $ npm start
 
 | 이름   | 사진 | 역할 |
 |--------|:----:|------|
-| 이우주 | ![이우주](https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e 계획 및 관리 | <br>- 팀 리딩 및 커뮤니케이션<br>- 커스텀 훅 개발 |
-| 신성진 | ![신성진](https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb인 페이지 개발 | <br>- 동아리 만들기 페이지 개발<br>- 커스텀 훅 개발 |
+| 이우주 | 계획 및 관리 | <br>- 팀 리딩 및 커뮤니케이션<br>- 커스텀 훅 개발 |
+| 신성진 | 페이지 개발 | <br>- 동아리 만들기 페이지 개발<br>- 커스텀 훅 개발 |
 
 # 5. Technology Stack (기술 스택)
 
@@ -64,7 +63,7 @@ $ npm start
 
 | 언어        | 아이콘 |
 |-------------|:------:|
-| JavaScript  | ![JavaScript](https://github.com/user-attachments/assets/4a7d7074-8c71-48b) 5.2 Frontend |
+| TypeScript  |<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg?style=for-the-badge&logo=typescript&logoColor=white"> | 5.2 Frontend |
 
 | 프레임워크    | 아이콘 | 버전 |
 |--------------|:------:|------|
@@ -73,7 +72,7 @@ $ npm start
 | 백엔드         | 아이콘 | 버전 |
 |----------------|:------:|------|
 | Node.js        | ![Node.js](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8ef) | 10.12.5 |
-| Oracle Database| ![Oracle Database](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e) | 5.4 API |
+| Oracle Database| <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> | 5.4 API |
 
 | API           | 아이콘 |
 |---------------|:------:|
