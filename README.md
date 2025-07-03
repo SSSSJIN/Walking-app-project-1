@@ -34,8 +34,6 @@
 
 # 5. 기술 스택
 
-## 5.1 Language
-
 | 언어        | 아이콘 |
 |-------------|:------:|
 | TypeScript  | <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" height="28"> |
