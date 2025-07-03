@@ -1,0 +1,186 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Button, Alert, Text, ScrollView, StyleSheet, TextInput, Platform } from 'react-native';
+import * as Location from 'expo-location';
+import MapView, { Marker, Polyline } from 'react-native-maps';
+import PathService from '../../../services/PathService'; // 서비스 경로 확인
+
+type LatLng = { latitude: number; longitude: number };
+
+export default function GpsScreen() {
+  const [recording, setRecording] = useState(false);
+  const [route, setRoute] = useState<LatLng[]>([]);
+  const [currentPosition, setCurrentPosition] = useState<LatLng | null>(null);
+  const [pathName, setPathName] = useState(''); // 경로 이름 상태 추가
+  const mapRef = useRef<MapView>(null);
+  const watchRef = useRef<Location.LocationSubscription>();
+
+  // 위치 권한 요청
+  useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert('권한 오류', '위치 권한이 필요합니다.');
+        return;
+      } // 🔴 누락된 닫는 괄호 추가
+      const location = await Location.getLastKnownPositionAsync();
+      if (location) {
+        setCurrentPosition({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        });
+      }
+    })();
+  }, []);
+
+  // 위치 변화 감지 시작
+  const startRecording = async () => {
+    setRecording(true);
+    watchRef.current = await Location.watchPositionAsync(
+      {
+        accuracy: Location.Accuracy.High,
+        distanceInterval: 10,
+      },
+      (position) => {
+        const newPoint = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        setCurrentPosition(newPoint);
+        setRoute((prev) => [...prev, newPoint]);
+        mapRef.current?.animateCamera({
+          center: newPoint,
+          zoom: 16,
+        });
+      }
+    );
+  };
+
+  // 기록 중지 및 초기화
+  const stopRecording = () => {
+    if (watchRef.current) {
+      watchRef.current.remove();
+    }
+    setRecording(false);
+  };
+
+  // 기록 초기화
+  const resetRecording = () => {
+    setRoute([]);
+    Alert.alert('초기화 완료', '모든 기록이 삭제되었습니다.');
+  };
+
+  // DB 저장
+  const saveToDatabase = async () => {
+    if (route.length === 0) {
+      Alert.alert('경고', '저장할 경로가 없습니다.');
+      return;
+    }
+
+    try {
+      const result = await PathService.saveGPSRecord({
+        pathName: pathName || '무제 경로',
+        coordinates: route.map((point, index) => ({
+          lat: point.latitude,
+          lng: point.longitude,
+          type: index === 0 ? 'START' : 
+                index === route.length - 1 ? 'END' : 'WAYPOINT',
+          order: index + 1
+        })),
+        totalDistance: calculateDistance(route),
+        estimatedTime: calculateTime(route)
+      });
+
+      if (result.success) {
+        Alert.alert('저장 성공', '경로가 데이터베이스에 저장되었습니다.');
+        setRoute([]);
+        setPathName('');
+      }
+    } catch (error) {
+      Alert.alert('저장 실패', error.message);
+    }
+  };
+
+  // 거리 계산 (예시)
+  const calculateDistance = (points: LatLng[]) => {
+    return points.length * 0.01; // 실제 계산 로직 구현 필요
+  };
+
+  // 시간 계산 (예시)
+  const calculateTime = (points: LatLng[]) => {
+    return points.length * 2; // 실제 계산 로직 구현 필요
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.controls}>
+        <Button
+          title={recording ? '기록 중지' : '기록 시작'}
+          onPress={recording ? stopRecording : startRecording}
+        />
+        {!recording && route.length > 0 && (
+          <>
+            <Button title="기록 초기화" onPress={resetRecording} color="#e74c3c" />
+            <Button title="DB 저장" onPress={saveToDatabase} color="#2ecc71" />
+            <TextInput
+              style={styles.input}
+              placeholder="경로 이름 입력"
+              value={pathName}
+              onChangeText={setPathName}
+            />
+          </>
+        )}
+      </View>
+
+      {currentPosition && (
+        <MapView
+          ref={mapRef}
+          style={styles.map}
+          initialRegion={{
+            ...currentPosition,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          {route.map((point, index) => (
+            <Marker
+              key={index}
+              coordinate={point}
+              title={index === 0 ? '시작점' : index === route.length - 1 ? '도착점' : `경유지 ${index}`}
+            />
+          ))}
+          {route.length > 1 && (
+            <Polyline
+              coordinates={route}
+              strokeColor="#3498db"
+              strokeWidth={4}
+            />
+          )}
+        </MapView>
+      )}
+
+      <ScrollView style={styles.routeList}>
+        <Text style={styles.routeTitle}>기록된 좌표 ({route.length}개)</Text>
+        {route.map((point, idx) => (
+          <Text key={idx} style={styles.routeItem}>
+            {idx + 1}. 위도: {point.latitude.toFixed(6)}, 경도: {point.longitude.toFixed(6)}
+          </Text>
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#fff' },
+  map: { flex: 2 },
+  controls: { padding: 16, gap: 10 },
+  routeList: { flex: 0.3, padding: 16 },
+  routeTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 12 },
+  routeItem: { fontSize: 14, marginBottom: 6 },
+  input: { 
+    borderWidth: 1, 
+    borderColor: '#ddd', 
+    padding: 8, 
+    marginVertical: 5 
+  }
+});

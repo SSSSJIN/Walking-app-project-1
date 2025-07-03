@@ -1,0 +1,222 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity, RefreshControl, ActivityIndicator } from 'react-native';
+import { useRouter, useFocusEffect } from 'expo-router';
+import PostService, { type Post } from '../../services/PostService';
+
+export default function HomeScreen() {
+  const router = useRouter();
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+
+  // 게시글 목록 불러오기
+  const loadPosts = async () => {
+    try {
+      setLoading(true);
+      const result = await PostService.getPosts(20, 0);
+      if (result.success) {
+        setPosts(result.posts);
+      }
+    } catch (error) {
+      console.error('게시글 로딩 실패:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      loadPosts();
+    }, [])
+  );
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await loadPosts();
+    setRefreshing(false);
+  };
+
+  // 이미지 경로 처리 함수
+  const getImageSource = (imagePath: string) => {
+    if (imagePath.startsWith('http')) {
+      return { uri: imagePath };
+    }
+    return { uri: `http://10.0.2.2:3000${imagePath}` };
+  };
+
+  // 지도 썸네일(경로 이미지) 예시: pathMapImageUrl 필드가 있다고 가정
+  const getPathMapImage = (item: Post) => {
+    // 실제로는 서버에서 경로 미리보기 이미지를 생성해줘야 함
+    // 임시로 지도 아이콘 사용
+    return { uri: 'https://cdn-icons-png.flaticon.com/512/854/854878.png' };
+  };
+
+  const renderPostItem = ({ item }: { item: Post }) => (
+    <TouchableOpacity
+      style={styles.postContainer}
+      onPress={() => router.push(`/post/${item.postNo}`)}
+    >
+      {/* 제목을 상단에 크게, 바로 아래에 작성자 이름(작게) */}
+      <Text style={styles.postTitle}>{item.title}</Text>
+      <Text style={styles.userNameSmall}>{item.userName}</Text>
+      <Text style={styles.postTime}>
+        {new Date(item.createdDate).toLocaleDateString('ko-KR')} • 조회 {item.viewCount}
+      </Text>
+
+      {/* 본문 내용 */}
+      <Text style={styles.postContent}>
+        {typeof item.content === 'string'
+          ? item.content
+          : JSON.stringify(item.content)}
+      </Text>
+
+      {/* 아래는 이미지/경로 미리보기 레이아웃 */}
+      <View style={styles.imageRow}>
+        {/* 왼쪽: 경로 미리보기(지도 이미지 등) */}
+        <View style={styles.pathMapContainer}>
+          <Image
+            source={getPathMapImage(item)}
+            style={styles.pathMapImage}
+          />
+        </View>
+        {/* 오른쪽: 게시글 이미지 2개 미리보기 */}
+        <View style={styles.postImagesContainer}>
+          {item.imagePaths && item.imagePaths.length > 0 && (
+            <View style={styles.imageCol}>
+              <Image
+                source={getImageSource(item.imagePaths[0])}
+                style={styles.postImageSmall}
+              />
+              {item.imagePaths[1] && (
+                <Image
+                  source={getImageSource(item.imagePaths[1])}
+                  style={styles.postImageSmall}
+                />
+              )}
+            </View>
+          )}
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+
+  if (loading) {
+    return (
+      <View style={[styles.container, styles.centerContent]}>
+        <ActivityIndicator size="large" color="#3B82F6" />
+        <Text style={styles.loadingText}>게시글을 불러오는 중...</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={posts}
+        renderItem={renderPostItem}
+        keyExtractor={(item) => item.postNo.toString()}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>게시글이 없습니다.</Text>
+          </View>
+        }
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#f8f9fa' },
+  centerContent: { justifyContent: 'center', alignItems: 'center' },
+  postContainer: {
+    backgroundColor: 'white',
+    marginVertical: 6,
+    marginHorizontal: 10,
+    padding: 16,
+    borderRadius: 12,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  postTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#222',
+    marginBottom: 2,
+  },
+  userNameSmall: {
+    fontSize: 12,
+    color: '#888',
+    marginBottom: 2,
+  },
+  postTime: {
+    color: '#7f8c8d',
+    fontSize: 11,
+    marginBottom: 6,
+  },
+  postContent: {
+    fontSize: 15,
+    marginBottom: 10,
+    lineHeight: 21,
+    color: '#2c3e50',
+  },
+  imageRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginTop: 6,
+  },
+  pathMapContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#e3f2fd',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  pathMapImage: {
+    width: 70,
+    height: 70,
+    resizeMode: 'contain',
+  },
+  postImagesContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    gap: 6,
+  },
+  imageCol: {
+    flexDirection: 'column',
+    gap: 6,
+  },
+  postImageSmall: {
+    width: 90,
+    height: 38,
+    borderRadius: 6,
+    resizeMode: 'cover',
+    marginBottom: 4,
+    backgroundColor: '#f0f0f0',
+  },
+  loadingText: {
+    fontSize: 16,
+    color: '#666',
+    marginTop: 12,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 100,
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#999',
+  },
+});
