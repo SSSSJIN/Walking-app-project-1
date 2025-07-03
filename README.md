@@ -38,16 +38,16 @@
 
 | 언어        | 아이콘 |
 |-------------|:------:|
-| TypeScript  | -- |
-| JavaScript  | -- |
+| TypeScript  | <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" height="28"> |
+| JavaScript  | <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="28"> |
 
 | 프레임워크    | 아이콘 |
 |--------------|:------:|
-| React Native | ![React Native](https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a) |
+| React Native | <img src="https://img.shields.io/badge/react%20native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" height="28"> |
 
 | 백엔드         | 아이콘 |
 |----------------|:------:|
-| Node.js        | ![Node.js](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8ef) |
+| Node.js        | <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" height="28"> |
 | Oracle Database | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
 
 | API           | 아이콘 |
