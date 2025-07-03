@@ -52,11 +52,11 @@
 
 | API           | 아이콘 |
 |---------------|:------:|
-| Google Map API | ![Google Map API](https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white)
+| Google Map API | <img src="https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white" height="28"> |
 
 | 협업 도구 | 아이콘 |
 |-----------|:------:|
-| Notion    | ![Notion](https://github.com/user-attachments/assets/34141eb9-deca-)
+| Notion    | <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white" height="28"> |
 
 <br/>
 <br/>
