@@ -134,21 +134,35 @@ $ npm start
 
 # 6. Project Structure (프로젝트 구조)
 ```plaintext
-project/
-├── public/
-│   ├── index.html           # HTML 템플릿 파일
-│   └── favicon.ico          # 아이콘 파일
-├── src/
-│   ├── assets/              # 이미지, 폰트 등 정적 파일
-│   ├── components/          # 재사용 가능한 UI 컴포넌트
-│   ├── hooks/               # 커스텀 훅 모음
-│   ├── pages/               # 각 페이지별 컴포넌트
-│   ├── App.js               # 메인 애플리케이션 컴포넌트
-│   ├── index.js             # 엔트리 포인트 파일
-│   ├── index.css            # 전역 css 파일
-│   ├── firebaseConfig.js    # firebase 인스턴스 초기화 파일
-│   package-lock.json    # 정확한 종속성 버전이 기록된 파일로, 일관된 빌드를 보장
-│   package.json         # 프로젝트 종속성 및 스크립트 정의
+walking_app/
+├── app/
+│   ├── tabs/                        # 메인 페이지
+│   │   ├── index.tsx                # 메인 시작 페이지
+│   │   ├── my-walk-paths.tsx        # 내 산책길 목록 페이지
+│   │   ├── profile.tsx              # 프로필 페이지
+│   │   ├── _layout.tsx              # 레이아웃 설정 파일
+│   │   └── history/                 # 기록 페이지
+│   │       ├── index.tsx            # 기록 메인 페이지
+│   │       ├── gps.tsx              # GPS 기록 페이지
+│   │       ├── ping.tsx             # 직접 경로 기록 페이지
+│   │       └── _layout.tsx          # 레이아웃 설정 파일
+│   ├── post/                        # 게시글
+│   │   ├── [id].tsx                 # 게시글 페이지                 
+│   │   └── [id]/                    
+│   │       ├── navigate-path.tsx    
+│   │       └── save-path.tsx
+│   ├── path-map/
+│   │   └── [pathNo].tsx
+│   └── create-post-from-path
+│       └── [pathNo].tsx
+│ 
+├── server/
+│   ├── server.js         # 이미지, 폰트 등 정적 파일
+│   ├── upload/         # 게시글 이미지 저장 파일
+│   │   └── paths/      # 경로 이미지 저장 파일
+│   ├── routes/               # 커스텀 훅 모음
+│   └── config/               # 각 페이지별 컴포넌트
+│
 ├── .gitignore               # Git 무시 파일 목록
 └── README.md                # 프로젝트 개요 및 사용법
 ```
