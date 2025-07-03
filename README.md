@@ -22,24 +22,24 @@ Google Maps Api<br>
 ```bash
 $ npm start
 ```
-[서비스 링크](https://club-project-one.vercel.app/)
+[서비스 링크](아직없음)
 
 <br/>
 <br/>
 
 # 1. Project Overview (프로젝트 개요)
-- 프로젝트 이름: 모여봐요 동아리숲!
-- 프로젝트 설명: 전국 대학 동아리 일정관리 및 홍보 커뮤니티
+- 프로젝트 이름: 산책 경로 공유 어플
+- 프로젝트 설명: 산책길을 기록하고 공유할수 있는 어플이다.
 
 <br/>
 <br/>
 
 # 2. Team Members (팀원 및 팀 소개)
-| 이동규 | 신유승 | 김나연 | 이승준 |
-|:------:|:------:|:------:|:------:|
-| <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="150"> | <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="150"> | <img src="https://github.com/user-attachments/assets/78ce1062-80a0-4edb-bf6b-5efac9dd992e" alt="김나연" width="150"> | <img src="https://github.com/user-attachments/assets/beea8c64-19de-4d91-955f-ed24b813a638" alt="이승준" width="150"> |
-| PL | FE | FE | FE |
-| [GitHub](https://github.com/LDK1009) | [GitHub](https://github.com/SinYusi) | [GitHub](https://github.com/nay3on) | [GitHub](https://github.com/conconcc) |
+| 이우주 | 신성진 |
+|:------:|:------:|
+| <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="150"> | <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="150"> | 
+| PL | FE |
+| [GitHub](https://github.com/LDK1009) | [GitHub](https://github.com/SinYusi) | 
 
 <br/>
 <br/>
@@ -51,23 +51,16 @@ $ npm start
 - **로그인**:
   - 사용자 인증 정보를 통해 로그인합니다.
 
-- **내 동아리 일정관리**:
-  - 캘린더 UI를 통해 동아리 관련 일정 추가&삭제가 가능합니다.
-  - 체크박스를 통해 종료되거나 이미 수행한 일정을 표시할 수 있습니다.
+- **경로 기록**:
+  - 기록시작시 GPS를 통해 산책경로를 기록할 수 있습니다.
+  - 지도를 클릭해 직접 산책 경로를 작성할 수 있습니다.
 
-- **동아리 찾기**:
-  - 대학 내 동아리를 검색할 수 있습니다.
-  - 검색 시 해당 동아리가 업로드한 홍보글이 보여집니다.
+- **공유 기능**:
+  - 저장된 경로를 게시글로 작성해 업로드 할 수 있습니다.
+  - 게시판에서 남들이 공유한 경로를 확인할 수 있습니다.
 
-- **동아리 홍보**:
-  - 홍보글 등록을 통해 동아리를 홍보할 수 있습니다.
-
-- **동아리 만들기**:
-  - 새로운 동아리를 만들어 관리할 수 있습니다.
-
-- **동아리 프로필**:
-  - 동아리 홍보글에서 동아리 이름(링크)를 클릭하면 해당 동아리 프로필로 이동합니다.
-  - 동아리 프로필에서는 동아리 소개, 동아리 활동사진 갤러리, 동아리 홍보글 기록관 등을 볼 수 있습니다.
+- **경로 안내**:
+  - 게시글에서 경로 안내를 원할 경우 카카오지도로 이동해 경로안내를 받을 수 있습니다.
 
 <br/>
 <br/>
@@ -75,46 +68,39 @@ $ npm start
 # 4. Tasks & Responsibilities (작업 및 역할 분담)
 |  |  |  |
 |-----------------|-----------------|-----------------|
-| 이동규    |  <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="100"> | <ul><li>프로젝트 계획 및 관리</li><li>팀 리딩 및 커뮤니케이션</li><li>커스텀훅 개발</li></ul>     |
-| 신유승   |  <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="100">| <ul><li>메인 페이지 개발</li><li>동아리 만들기 페이지 개발</li><li>커스텀훅 개발</li></ul> |
-| 김나연   |  <img src="https://github.com/user-attachments/assets/78ce1062-80a0-4edb-bf6b-5efac9dd992e" alt="김나연" width="100">    |<ul><li>홈 페이지 개발</li><li>로그인 페이지 개발</li><li>동아리 찾기 페이지 개발</li><li>동아리 프로필 페이지 개발</li><li>커스텀훅 개발</li></ul>  |
-| 이승준    |  <img src="https://github.com/user-attachments/assets/beea8c64-19de-4d91-955f-ed24b813a638" alt="이승준" width="100">    | <ul><li>회원가입 페이지 개발</li><li>마이 프로필 페이지 개발</li><li>커스텀훅 개발</li></ul>    |
+| 이우주   |  <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="100"> | <ul><li>프로젝트 계획 및 관리</li><li>팀 리딩 및 커뮤니케이션</li><li>커스텀훅 개발</li></ul>     |
+| 신성진   |  <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="100">| <ul><li>메인 페이지 개발</li><li>동아리 만들기 페이지 개발</li><li>커스텀훅 개발</li></ul> |
+
 
 <br/>
 <br/>
 
 # 5. Technology Stack (기술 스택)
 ## 5.1 Language
-|  |  |
-|-----------------|-----------------|
-| HTML5    |<img src="https://github.com/user-attachments/assets/2e122e74-a28b-4ce7-aff6-382959216d31" alt="HTML5" width="100">| 
-| CSS3    |   <img src="https://github.com/user-attachments/assets/c531b03d-55a3-40bf-9195-9ff8c4688f13" alt="CSS3" width="100">|
+|  |
+|-----------------|
 | Javascript    |  <img src="https://github.com/user-attachments/assets/4a7d7074-8c71-48b4-8652-7431477669d1" alt="Javascript" width="100"> | 
 
 <br/>
 
 ## 5.2 Frotend
-|  |  |  |
-|-----------------|-----------------|-----------------|
-| React    |  <img src="https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a2fd2" alt="React" width="100"> | 18.3.1    |
-| StyledComponents    |  <img src="https://github.com/user-attachments/assets/c9b26078-5d79-40cc-b120-69d9b3882786" alt="StyledComponents" width="100">| 6.1.12   |
-| MaterialUI    |  <img src="https://github.com/user-attachments/assets/75a46fa7-ebc0-4a9d-b648-c589f87c4b55" alt="MUI" width="100">    | 5.0.0  |
-| DayJs    |  <img src="https://github.com/user-attachments/assets/3632d7d6-8d43-4dd5-ba7a-501a2bc3a3e4" alt="DayJs" width="100">    | 1.11.12    |
+|  |
+|-----------------|
+| React Native   |  <img src="https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a2fd2" alt="React" width="100"> | 18.3.1    |
 
 <br/>
 
 ## 5.3 Backend
-|  |  |  |
-|-----------------|-----------------|-----------------|
-| Firebase    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
+|  |
+|-----------------|-----------------|
+| Node.js    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
+| Oracle Database    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
 
 <br/>
 
 ## 5.4 Cooperation
-|  |  |
-|-----------------|-----------------|
-| Git    |  <img src="https://github.com/user-attachments/assets/483abc38-ed4d-487c-b43a-3963b33430e6" alt="git" width="100">    |
-| Git Kraken    |  <img src="https://github.com/user-attachments/assets/32c615cb-7bc0-45cd-91ea-0d1450bfc8a9" alt="git kraken" width="100">    |
+|  |
+|-----------------|
 | Notion    |  <img src="https://github.com/user-attachments/assets/34141eb9-deca-416a-a83f-ff9543cc2f9a" alt="Notion" width="100">    |
 
 <br/>
@@ -325,9 +311,4 @@ SMS, 이메일 중복확인 API 개발
 UI개발을 위한 라이브러리 styled-components 설치
 ```
 
-<br/>
-<br/>
 
-# 10. 컨벤션 수행 결과
-<img width="100%" alt="코드 컨벤션" src="https://github.com/user-attachments/assets/0dc218c0-369f-45d2-8c6d-cdedc81169b4">
-<img width="100%" alt="깃플로우" src="https://github.com/user-attachments/assets/2a4d1332-acc2-4292-9815-d122f5aea77c">
