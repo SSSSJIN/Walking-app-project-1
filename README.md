@@ -63,7 +63,7 @@ $ npm start
 
 | 언어        | 아이콘 |
 |-------------|:------:|
-| TypeScript  |<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg?style=for-the-badge&logo=typescript&logoColor=white"> | 5.2 Frontend |
+| TypeScript  | -- | 5.2 Frontend |
 
 | 프레임워크    | 아이콘 | 버전 |
 |--------------|:------:|------|
