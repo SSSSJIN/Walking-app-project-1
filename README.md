@@ -22,7 +22,6 @@
 # 2. Team Members (팀원 및 팀 소개)
 | 이우주 | 신성진 |
 |:------:|:------:| 
-| PL | FE |
 | [GitHub](https://github.com/) | [GitHub](https://github.com/) | 
 
 <br/>
@@ -59,34 +58,25 @@
 
 | 언어        | 아이콘 |
 |-------------|:------:|
-| TypeScript  | -- | 5.2 Frontend |
+| TypeScript  | -- |
+| JavaScript  | -- |
 
-| 프레임워크    | 아이콘 | 버전 |
-|--------------|:------:|------|
-| React Native | ![React Native](https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a) |  5.3 Backend |
+| 프레임워크    | 아이콘 |
+|--------------|:------:|
+| React Native | ![React Native](https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a) |
 
-| 백엔드         | 아이콘 | 버전 |
-|----------------|:------:|------|
-| Node.js        | ![Node.js](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8ef) | 10.12.5 |
-| Oracle Database| <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> | 5.4 API |
+| 백엔드         | 아이콘 |
+|----------------|:------:|
+| Node.js        | ![Node.js](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8ef) |
+| Oracle Database | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
 
 | API           | 아이콘 |
 |---------------|:------:|
-| Google Map API| ![Google Map API](https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white)
+| Google Map API | ![Google Map API](https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white)
 
 | 협업 도구 | 아이콘 |
 |-----------|:------:|
 | Notion    | ![Notion](https://github.com/user-attachments/assets/34141eb9-deca-)
-
-<br/>
-<br/>
-
-# 4. Tasks & Responsibilities (작업 및 역할 분담)
-|  | 
-|-----------------|-----------------|
-| 이우주   |  <img src="https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e91efa2da" alt="이동규" width="100"> | <ul><li>프로젝트 계획 및 관리</li><li>팀 리딩 및 커뮤니케이션</li><li>커스텀훅 개발</li></ul>     |
-| 신성진   |  <img src="https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb3c4601e" alt="신유승" width="100">| <ul><li>메인 페이지 개발</li><li>동아리 만들기 페이지 개발</li><li>커스텀훅 개발</li></ul> |
-
 
 <br/>
 <br/>
@@ -127,43 +117,4 @@
 | Notion    |  <img src="https://github.com/user-attachments/assets/34141eb9-deca-416a-a83f-ff9543cc2f9a" alt="Notion" width="100">    |
 
 <br/>
-
-# 6. Project Structure (프로젝트 구조)
-```plaintext
-walking_app/
-├── app/
-│   ├── tabs/                        # 메인 페이지
-│   │   ├── index.tsx                # 메인 시작 페이지
-│   │   ├── my-walk-paths.tsx        # 내 산책길 목록 페이지
-│   │   ├── profile.tsx              # 프로필 페이지
-│   │   ├── _layout.tsx              # 레이아웃 설정 파일
-│   │   └── history/                 # 기록 페이지
-│   │       ├── index.tsx            # 기록 메인 페이지
-│   │       ├── gps.tsx              # GPS 기록 페이지
-│   │       ├── ping.tsx             # 직접 경로 기록 페이지
-│   │       └── _layout.tsx          # 레이아웃 설정 파일
-│   ├── post/                        # 게시글
-│   │   ├── [id].tsx                 # 게시글 페이지                 
-│   │   └── [id]/                    
-│   │       ├── navigate-path.tsx    
-│   │       └── save-path.tsx
-│   ├── path-map/
-│   │   └── [pathNo].tsx
-│   └── create-post-from-path
-│       └── [pathNo].tsx
-│ 
-├── server/
-│   ├── server.js         # 이미지, 폰트 등 정적 파일
-│   ├── upload/         # 게시글 이미지 저장 파일
-│   │   └── paths/      # 경로 이미지 저장 파일
-│   ├── routes/               # 커스텀 훅 모음
-│   └── config/               # 각 페이지별 컴포넌트
-│
-├── .gitignore               # Git 무시 파일 목록
-└── README.md                # 프로젝트 개요 및 사용법
-```
-
-<br/>
-<br/>
-
 
