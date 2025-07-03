@@ -51,6 +51,38 @@ $ npm start
 - **경로 안내**:
   - 게시글에서 경로 안내를 원할 경우 카카오지도로 이동해 경로안내를 받을 수 있습니다.
 
+## 4. Tasks & Responsibilities (작업 및 역할 분담)
+
+| 이름   | 사진 | 역할 |
+|--------|:----:|------|
+| 이우주 | ![이우주](https://github.com/user-attachments/assets/c1c2b1e3-656d-4712-98ab-a15e 계획 및 관리<br>- 팀 리딩 및 커뮤니케이션<br>- 커스텀 훅 개발 |
+| 신성진 | ![신성진](https://github.com/user-attachments/assets/78ec4937-81bb-4637-975d-631eb인 페이지 개발<br>- 동아리 만들기 페이지 개발<br>- 커스텀 훅 개발 |
+
+## 5. Technology Stack (기술 스택)
+
+### 5.1 Language
+
+| 언어        | 아이콘 |
+|-------------|:------:|
+| JavaScript  | ![JavaScript](https://github.com/user-attachments/assets/4a7d7074-8c71-48b 5.2 Frontend
+
+| 프레임워크    | 아이콘 | 버전 |
+|--------------|:------:|------|
+| React Native | ![React Native](https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a 5.3 Backend
+
+| 백엔드         | 아이콘 | 버전 |
+|----------------|:------:|------|
+| Node.js        | ![Node.js](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8ef 10.12.5 |
+| Oracle Database| ![Oracle Database](https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e 5.4 API
+
+| API           | 아이콘 |
+|---------------|:------:|
+| Google Map API| ![Google Map API](https://img.shields.io/badge/google%20maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white
+
+| 협업 도구 | 아이콘 |
+|-----------|:------:|
+| Notion    | ![Notion](https://github.com/user-attachments/assets/34141eb9-deca-
+
 <br/>
 <br/>
 
@@ -90,7 +122,7 @@ $ npm start
 ## 5.4 Api
 |  |
 |-----------------|
-| Google Map Api    |  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=google&logoColor=white" width="100"><img src="https://github.com/user-attachments/assets/34141eb9-deca-416a-a83f-ff9543cc2f9a" alt="Notion" width="100">    |
+| Google Map Api    |  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=google&logoColor=white" width="100">    |
 
 <br/>
 
